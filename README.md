@@ -36,3 +36,6 @@ Images sous licence Unsplash : https://unsplash.com/license (utilisation gratuit
 - `workspace.jpg` : Grovemade — https://unsplash.com/photos/black-and-silver-laptop-on-brown-wooden-rack-RvPDe41lYBA
 
 Avant publication, remplacer les emplacements projets et témoignages, renseigner les résultats sportifs et les liens de contact, et ajouter les informations légales adaptées à l’activité. Cette livraison est locale, sans déploiement.
+
+## Réalisation Nitaski Aventure
+Visuel récupéré sur le site client à la demande de Nicolas pour illustrer sa refonte WordPress. Cette image ne relève pas de la licence Unsplash. Source : https://www.nitaski.com/wp-content/uploads/2026/07/randonnee-motoneige-foret-enneigee.webp . Site : https://www.nitaski.com/ .
