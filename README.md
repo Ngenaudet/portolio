@@ -39,3 +39,6 @@ Avant publication, remplacer les emplacements projets et témoignages, renseigne
 
 ## Réalisation Nitaski Aventure
 Visuel récupéré sur le site client à la demande de Nicolas pour illustrer sa refonte WordPress. Cette image ne relève pas de la licence Unsplash. Source : https://www.nitaski.com/wp-content/uploads/2026/07/randonnee-motoneige-foret-enneigee.webp . Site : https://www.nitaski.com/ .
+
+## Contenus personnels et recommandations
+La photographie `assets/renovation-appartement.jpg` est fournie par Nicolas et remplace le visuel de rénovation provisoire. Les recommandations de Ludivine Vajou (26 août 2025) et Marieke Arnaud (20 juillet 2026) sont transcrites depuis la capture LinkedIn fournie par Nicolas. Le texte de Ludivine est repris intégralement tel que visible ; pour Marieke, seule la première phrase complète est citée et signalée comme extrait, la suite étant tronquée dans la capture.
