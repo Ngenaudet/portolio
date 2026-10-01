@@ -45,3 +45,8 @@ La photographie `assets/renovation-piece-de-vie.jpg` est fournie par Nicolas et 
 
 ## Identité La Crête
 Identité intégrée depuis le PDF fourni « Logo — La crête » : Nuit #0E1E2B, Soleil #DCF57A, Argile #A3361E, Brume #F3F5F2. Le PDF étant une planche raster, le symbole a été retracé en SVG pour rester net. Logo composé avec Instrument Sans et Instrument Serif, polices hébergées localement dans assets/fonts avec leurs licences OFL. Variantes crest.svg, crest-light.svg et favicon simplifié à un sommet.
+
+## Pages de services
+Les quatre dossiers `developpeur-wordpress-lyon/`, `creation-site-wordpress/`, `refonte-site-wordpress/` et `consultant-seo-lyon/` contiennent chacun un `index.html`. Ils sont accessibles avec une URL terminée par `/`, sans réécriture particulière, sur Apache et GitHub Pages. Les liens internes visent explicitement leur fichier `index.html` pour fonctionner aussi en ouverture locale (`file://`). Les URL canoniques conservent la forme courte avec `/`. Leurs ressources utilisent des chemins relatifs. Chaque page possède un titre, une description et une URL canonique propres, ainsi que des liens depuis l’accueil et vers les services complémentaires.
+
+Le domaine de publication est `https://nicolas-genaudet.fr`. `sitemap.xml` recense les sept pages publiques et `robots.txt` indique son adresse. Mettre à jour ces fichiers et les URL canoniques en cas de changement de domaine. Le déploiement et la soumission du sitemap à Search Console restent des opérations distinctes de la création des fichiers.
