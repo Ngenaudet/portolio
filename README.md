@@ -1,7 +1,7 @@
 # Nicolas Genaudet — site statique
 
 ## Ouvrir
-Double-cliquer sur `index.html`. Ouvrir `formations.html` pour la page Formations. Aucun outil de compilation, dépendance ou serveur n’est nécessaire pour le site et les exemples. Les trois images sont incluses localement : le rendu fonctionne hors ligne.
+Pour tester les URL courtes, lancer `python3 -m http.server 8000` depuis le dossier du projet, puis ouvrir `http://localhost:8000/`. Aucun outil de compilation ni dépendance supplémentaire n’est nécessaire. Éviter l’ouverture directe en `file://`, qui ne résout pas automatiquement les fichiers index des dossiers. Les trois images sont incluses localement : le rendu fonctionne hors ligne.
 
 ## Personnaliser
 - `index.html` : textes, projets, témoignages et carnet sportif. Les contenus non fournis sont signalés et aucune performance ou citation client n’est inventée.
@@ -47,6 +47,6 @@ La photographie `assets/renovation-piece-de-vie.jpg` est fournie par Nicolas et 
 Identité intégrée depuis le PDF fourni « Logo — La crête » : Nuit #0E1E2B, Soleil #DCF57A, Argile #A3361E, Brume #F3F5F2. Le PDF étant une planche raster, le symbole a été retracé en SVG pour rester net. Logo composé avec Instrument Sans et Instrument Serif, polices hébergées localement dans assets/fonts avec leurs licences OFL. Variantes crest.svg, crest-light.svg et favicon simplifié à un sommet.
 
 ## Pages de services
-Les quatre dossiers `developpeur-wordpress-lyon/`, `creation-site-wordpress/`, `refonte-site-wordpress/` et `consultant-seo-lyon/` contiennent chacun un `index.html`. Ils sont accessibles avec une URL terminée par `/`, sans réécriture particulière, sur Apache et GitHub Pages. Les liens internes visent explicitement leur fichier `index.html` pour fonctionner aussi en ouverture locale (`file://`). Les URL canoniques conservent la forme courte avec `/`. Leurs ressources utilisent des chemins relatifs. Chaque page possède un titre, une description et une URL canonique propres, ainsi que des liens depuis l’accueil et vers les services complémentaires.
+Les quatre dossiers `developpeur-wordpress-lyon/`, `creation-site-wordpress/`, `refonte-site-wordpress/` et `consultant-seo-lyon/` contiennent chacun un `index.html`. Ils sont accessibles avec une URL terminée par `/`, sans réécriture particulière, sur Apache et GitHub Pages. Les liens internes utilisent les URL courtes des dossiers. Sur Apache, `.htaccess` définit `DirectoryIndex index.html` et redirige les demandes explicites de `index.html` vers le dossier correspondant. Le serveur Python permet de tester la navigation locale ; il ne traite pas les redirections Apache. Les URL canoniques conservent la forme courte avec `/`. Leurs ressources utilisent des chemins relatifs. Chaque page possède un titre, une description et une URL canonique propres, ainsi que des liens depuis l’accueil et vers les services complémentaires.
 
 Le domaine de publication est `https://nicolas-genaudet.fr`. `sitemap.xml` recense les sept pages publiques et `robots.txt` indique son adresse. Mettre à jour ces fichiers et les URL canoniques en cas de changement de domaine. Le déploiement et la soumission du sitemap à Search Console restent des opérations distinctes de la création des fichiers.

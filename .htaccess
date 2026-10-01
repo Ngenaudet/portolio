@@ -1,8 +1,15 @@
+DirectoryIndex index.html
+
 RewriteEngine On
 
 # Forcer HTTPS
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Retirer index.html uniquement des URL demandées par le navigateur.
+# THE_REQUEST évite une boucle avec le chargement interne du DirectoryIndex.
+RewriteCond %{THE_REQUEST} \s/+[^?\s]*index\.html(?:[?\s]) [NC]
+RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
 
 # Redirections anciennes pages vers la home
 Redirect 301 /realisation/ /
