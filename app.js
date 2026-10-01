@@ -36,15 +36,59 @@
   const formUrl = safeUrl(config.formUrl);
   if (formUrl) document.querySelectorAll('[data-form-url]').forEach(a => {a.href=formUrl; a.hidden=false; a.target='_blank'; a.rel='noopener noreferrer';});
   const form = document.querySelector('#contact-form');
-  form?.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const text = `Projet pour Nicolas Genaudet\n\nNom : ${data.get('name')}\nE-mail : ${data.get('email')}\n\n${data.get('message')}\n`;
-    const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));
-    const a=document.createElement('a');a.href=url;a.download='mon-projet.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-    document.querySelector('#form-status').textContent='Votre fichier a été préparé. Aucun message n’a été envoyé et aucune donnée n’a été stockée sur le site.';
-  });
+  if (form) {
+    const steps = [...form.querySelectorAll('.project-step')];
+    const progress = form.querySelector('.project-progress');
+    const markers = [...progress.querySelectorAll('li')];
+    const previous = form.querySelector('.project-back');
+    const next = form.querySelector('.project-next');
+    const download = form.querySelector('.project-download');
+    let current = 0;
+    form.noValidate = true;
+    progress.hidden = false;
+    const show = (index, focus = true) => {
+      current = index;
+      steps.forEach((step, i) => { step.hidden = i !== index; });
+      markers.forEach((marker, i) => {
+        if (i === index) marker.setAttribute('aria-current', 'step');
+        else marker.removeAttribute('aria-current');
+        marker.classList.toggle('is-complete', i < index);
+      });
+      form.querySelector('#project-step-status').textContent = `Étape ${index + 1} sur ${steps.length}`;
+      previous.hidden = index === 0;
+      next.hidden = index === steps.length - 1;
+      download.hidden = index !== steps.length - 1;
+      if (focus) steps[index].querySelector('h3').focus();
+    };
+    const validate = step => {
+      const invalid = [...step.querySelectorAll('input, textarea')].find(input => !input.checkValidity());
+      if (invalid) { invalid.reportValidity(); return false; }
+      return true;
+    };
+    previous.addEventListener('click', () => show(current - 1));
+    next.addEventListener('click', () => { if (validate(steps[current])) show(current + 1); });
+    form.addEventListener('input', () => { document.querySelector('#form-status').textContent = ''; });
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (current < steps.length - 1) {
+        if (validate(steps[current])) show(current + 1);
+        return;
+      }
+      for (let i = 0; i < steps.length; i++) {
+        const invalid = [...steps[i].querySelectorAll('input, textarea')].some(input => !input.checkValidity());
+        if (invalid) { show(i); validate(steps[i]); return; }
+      }
+      const data = new FormData(form);
+      const fields = [['name','Nom'],['firstname','Prénom'],['email','E-mail'],['phone','Téléphone'],['project','Projet'],['objectives','Objectifs'],['identity','Identité visuelle'],['content','Textes'],['pages','Nombre de pages'],['features','Fonctionnalités'],['deadline','Date souhaitée'],['website','Site actuel'],['message','Précisions']];
+      const text = 'Projet pour Nicolas Genaudet\n\n' + fields.map(([key,label]) => `${label} : ${data.getAll(key).filter(Boolean).join(', ') || 'Non précisé'}`).join('\n\n') + '\n';
+      const url = URL.createObjectURL(new Blob([text], {type:'text/plain;charset=utf-8'}));
+      const link = document.createElement('a');
+      link.href = url; link.download = 'mon-projet.txt'; document.body.append(link); link.click(); link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      document.querySelector('#form-status').textContent = 'Votre fichier a été préparé. Aucun message n’a été envoyé. Vous pouvez revenir aux étapes précédentes pour modifier vos réponses.';
+    });
+    show(0, false);
+  }
   const grid=document.querySelector('#course-grid');
   if (!grid) return;
   const status=document.querySelector('#catalog-status');

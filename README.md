@@ -12,7 +12,7 @@ Double-cliquer sur `index.html`. Ouvrir `formations.html` pour la page Formation
 
 ## Contact
 `calendlyUrl` vide : le bouton conduit au texte annonçant que la réservation sera disponible. Une fois renseigné, il ouvre Calendly.
-`formUrl` vide : pas de transmission externe. Le formulaire valide les champs et télécharge un fichier texte local ; il ne prétend jamais envoyer le message. Une fois le lien renseigné, un lien vers le formulaire externe apparaît. Les champs locaux ne sont pas transférés automatiquement. Aucun cookie, suivi, stockage local ou service distant n’est utilisé au chargement.
+`formUrl` vide : pas de transmission externe. Le formulaire reprend les thèmes du formulaire de https://nouvelleversion.fr/nos-solutions/ avec une intégration autonome en quatre étapes : coordonnées, projet et objectifs, identité et contenus, fonctionnalités et détails. Les boutons précédent/suivant conservent les réponses et les coordonnées obligatoires sont validées avant de continuer. Il télécharge un fichier texte local contenant toutes les réponses ; il ne prétend jamais envoyer le message. Une fois le lien renseigné, un lien vers le formulaire externe apparaît. Les champs locaux ne sont pas transférés automatiquement. Aucun cookie, suivi, stockage local ou service distant n’est utilisé au chargement.
 
 ## Catalogue REST Pilot’in
 La source éditoriale est https://www.pilot-in.com/formations/ (consultée le 29 septembre 2026). Aucun endpoint n’a été inventé et aucun tarif/durée/financement n’est promis.

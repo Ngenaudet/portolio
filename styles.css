@@ -58,3 +58,102 @@
 
 /* Identité La Crête : marque, rythme typographique et déclinaisons. */
 .brand{display:inline-flex;align-items:center;gap:14px;flex-shrink:0;letter-spacing:normal}.brand-crest{width:64px;height:50px;object-fit:contain}.brand .brand-wordmark{display:flex;flex-direction:column;margin:0;color:var(--ink);font-size:1.65rem;line-height:.96;letter-spacing:-.055em}.brand .brand-wordmark>span{font-size:inherit;color:inherit;margin:0;font-weight:600}.brand-wordmark em{font-size:1.95rem;line-height:1.02;letter-spacing:-.04em}.header{gap:30px;min-height:110px}.manifesto-crest{width:100px;height:78px;object-fit:contain}.hero-name{font-weight:600}.hero h1 em,.title-accent,.manifesto em,.training-hero h1 em{font-weight:400}.hero h1 em{font-size:1.08em}.title-accent{font-size:1.08em}.expertise.primary h3{color:var(--paper)}.footer .brand{margin-right:8px}@media(max-width:1100px){.header{gap:20px}.header nav{gap:20px}}@media(max-width:760px){.header{min-height:90px}.brand-crest{width:50px;height:42px}.brand{gap:10px}.brand .brand-wordmark{font-size:1.4rem}.brand-wordmark em{font-size:1.65rem}.header nav{gap:12px 24px}.hero h1{font-size:clamp(2.3rem,8vw,4rem)}}
+
+/* Formulaire de projet à étapes. */
+.contact-panel{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px}
+.contact-panel>div,.project-form{min-width:0}
+.project-progress{margin-bottom:32px}
+.contact-panel .project-progress p{margin-bottom:12px;color:var(--lime)}
+.project-progress ol{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;list-style:none;margin:0;padding:0}
+.project-progress li{border-top:3px solid #ffffff35;padding-top:10px;font-size:.72rem;color:#b8c8ce}
+.project-progress li[aria-current],.project-progress li.is-complete{border-color:var(--lime);color:var(--lime)}
+.project-step h3{font-size:clamp(1.6rem,2.5vw,2.2rem);line-height:1.15}
+.project-step h3:focus{outline:none}
+.project-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.project-question{border:0;padding:0;margin:0 0 24px;min-width:0}
+.project-question legend{font-size:.9rem;font-weight:600;margin-bottom:12px;padding:0}
+.project-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.contact-panel .project-choice{display:flex;align-items:center;gap:10px;border:1px solid #ffffff45;border-radius:12px;padding:13px;margin:0;cursor:pointer;background:#ffffff05;line-height:1.4}
+.project-choice:hover{border-color:var(--lime)}
+.project-choice:has(input:checked){background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.project-choice:has(input:focus-visible){outline:3px solid var(--lime);outline-offset:3px}
+.project-choice input{width:18px;height:18px;flex:0 0 18px;margin:0;accent-color:#456113}
+.project-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:28px}
+.project-actions .project-next,.project-actions .project-download{margin-left:auto}
+.project-back{background:transparent;color:white;border:1px solid #ffffff60}
+.contact-panel .project-privacy{margin:10px 0 12px;font-size:.75rem;color:#b8c8ce}
+.project-form #form-status:not(:empty){border-left:3px solid var(--lime);padding:12px 16px;background:#ffffff0a;margin-top:20px}
+@media(max-width:1000px){.contact-panel{grid-template-columns:1fr}.contact-panel form{padding:32px 0 0;border-left:0;border-top:1px solid #ffffff30}}
+@media(max-width:480px){.project-fields,.project-choices{grid-template-columns:1fr}.project-progress li{font-size:.65rem}.project-actions .button{padding:12px 16px}}
+
+/* À appliquer au conteneur portant l’image de fond. */
+.background-overlay {
+  position: relative;
+  isolation: isolate;
+}
+
+.background-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: .4;
+  background: linear-gradient(
+    110deg,
+    rgba(14, 30, 43, .9) 0%,
+    rgba(14, 30, 43, .6) 48%,
+    rgba(14, 30, 43, .15) 100%
+  );
+}
+
+@media (max-width: 760px) {
+  .background-overlay::before {
+    background: linear-gradient(
+      180deg,
+      rgba(14, 30, 43, .55) 0%,
+      rgba(14, 30, 43, .9) 100%
+    );
+  }
+}
+
+.fillout-form-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.fillout-form {
+  display: block;
+  width: 100%;
+  min-height: 1100px;
+  border: 0;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .fillout-form-wrapper {
+    padding: 16px;
+  }
+
+  .fillout-form {
+    min-height: 1200px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .fillout-form-wrapper {
+    padding: 0;
+  }
+
+  .fillout-form {
+    min-height: 1400px;
+    border-radius: 0;
+  }
+}
