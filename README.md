@@ -42,3 +42,6 @@ Visuel récupéré sur le site client à la demande de Nicolas pour illustrer sa
 
 ## Contenus personnels et recommandations
 La photographie `assets/renovation-piece-de-vie.jpg` est fournie par Nicolas et remplace le visuel de rénovation provisoire. Les recommandations de Ludivine Vajou (26 août 2025) et Marieke Arnaud (20 juillet 2026) sont transcrites depuis la capture LinkedIn fournie par Nicolas. Le texte de Ludivine est repris intégralement tel que visible ; pour Marieke, seule la première phrase complète est citée et signalée comme extrait, la suite étant tronquée dans la capture.
+
+## Identité La Crête
+Identité intégrée depuis le PDF fourni « Logo — La crête » : Nuit #0E1E2B, Soleil #DCF57A, Argile #A3361E, Brume #F3F5F2. Le PDF étant une planche raster, le symbole a été retracé en SVG pour rester net. Logo composé avec Instrument Sans et Instrument Serif, polices hébergées localement dans assets/fonts avec leurs licences OFL. Variantes crest.svg, crest-light.svg et favicon simplifié à un sommet.
