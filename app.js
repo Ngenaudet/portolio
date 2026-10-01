@@ -8,7 +8,7 @@
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#navigation');
   if (toggle && nav) {
-    const mobile = matchMedia('(max-width:760px)');
+    const mobile = matchMedia('(max-width:1000px)');
     const close = () => { nav.hidden = mobile.matches; toggle.setAttribute('aria-expanded','false'); };
     toggle.hidden = false;
     close();
