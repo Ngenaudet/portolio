@@ -1,5 +1,12 @@
 RewriteEngine On
 
-# Force HTTPS
+# Forcer HTTPS
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Redirections anciennes pages vers la home
+Redirect 301 /realisation/ /
+Redirect 301 /services/ /
+Redirect 301 /qui-suis-je/ /
+Redirect 301 /contact/ /
+Redirect 301 /methodes/ /
