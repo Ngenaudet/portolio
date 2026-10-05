@@ -776,7 +776,8 @@ textarea {
   gap: 25px;
   min-height: 340px;
 }
-.course h2 {
+.course h2,
+.course h3 {
   font-size: 2rem;
 }
 .course p {
@@ -1051,6 +1052,7 @@ textarea {
   background: var(--lime);
   color: var(--ink);
   padding: 12px 24px;
+  margin: 0px 0 10px;
 }
 .race-banner a {
   display: flex;
