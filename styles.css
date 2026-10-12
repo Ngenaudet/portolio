@@ -1633,6 +1633,30 @@ textarea {
   }
 }
 
+.contact-iframe-wrapper {
+  overflow: hidden;
+  border-radius: 24px;
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+
+.contact-iframe {
+  display: block;
+  width: 100%;
+  height: 750px;
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .contact-iframe-wrapper {
+    border-radius: 16px;
+  }
+
+  .contact-iframe {
+    height: 850px;
+  }
+}
+
 .fillout-form-wrapper {
   width: 100%;
   max-width: 1200px;
@@ -1644,7 +1668,7 @@ textarea {
 .fillout-form {
   display: block;
   width: 100%;
-  min-height: 1100px;
+  height: 100%;
   border: 0;
   border-radius: 16px;
   background: #ffffff;
@@ -1657,7 +1681,7 @@ textarea {
   }
 
   .fillout-form {
-    min-height: 1200px;
+    min-height: 700px;
   }
 }
 
@@ -1668,7 +1692,7 @@ textarea {
   }
 
   .fillout-form {
-    min-height: 1400px;
+    min-height: 750px;
     border-radius: 0;
   }
 }
@@ -1807,4 +1831,113 @@ textarea {
   .service-contact {
     padding: 32px 22px;
   }
+}
+
+/* Micro-interactions communes à toutes les pages. */
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 100;
+  background: var(--lime);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.motion-word { display: inline-block; }
+.motion-enabled .button,
+.motion-enabled .expertise {
+  transition-property: background, box-shadow, border-color;
+}
+.motion-enabled .button:hover,
+.motion-enabled .expertise:hover { transform: none; }
+.header nav a { position: relative; }
+.header nav a::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -6px;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.header nav a:hover,
+.header nav a:focus-visible,
+.header nav a.is-active,
+.header nav a[aria-current] { text-decoration: none; }
+.header nav a:hover::after,
+.header nav a:focus-visible::after,
+.header nav a.is-active::after,
+.header nav a[aria-current]::after { transform: scaleX(1); }
+.course,
+.review,
+.project-visual,
+.problems article,
+.service-home-links a {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.course:hover,
+.course:focus-within,
+.review:hover,
+.project-visual:hover,
+.project-visual:focus-visible,
+.expertise:hover,
+.expertise:focus-within { box-shadow: 0 16px 35px rgb(14 30 43 / 10%); }
+.button:hover,
+.button:focus-visible { box-shadow: 0 6px 20px rgb(14 30 43 / 15%); }
+.text-link,
+.course a,
+.expertise a,
+.footer > a:not(.brand) {
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.text-link:hover,
+.course a:hover,
+.expertise a:hover,
+.footer > a:not(.brand):hover { text-decoration-thickness: 2px; }
+.project-visual .project-wordmark,
+.project-visual .project-caption { transition: transform 0.4s ease; }
+.project-visual:hover .project-wordmark,
+.project-visual:focus-visible .project-wordmark { transform: translateY(-5px); }
+.project-visual:hover .project-caption,
+.project-visual:focus-visible .project-caption { transform: translateX(4px); }
+input,
+textarea,
+select { transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
+input:focus,
+textarea:focus,
+select:focus { box-shadow: 0 0 0 4px rgb(220 245 122 / 30%); }
+summary { transition: color 0.2s ease; }
+summary:hover,
+details[open] > summary { color: #547c08; }
+summary::marker { color: #547c08; }
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress { display: none; }
+  .project-visual:hover .project-wordmark,
+  .project-visual:focus-visible .project-wordmark,
+  .project-visual:hover .project-caption,
+  .project-visual:focus-visible .project-caption { transform: none; }
+  *, *::before, *::after { transition: none !important; }
+}
+@media print {
+  .reading-progress { display: none; }
+  .header, main *, .footer * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+/* Le header suit le sens de lecture, sans modifier la place du contenu. */
+.header { transition: transform 0.3s ease; }
+.header.is-scroll-hidden {
+  transform: translateY(calc(-100% - 32px));
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .header { transition: none; }
+}
+@media print {
+  .header.is-scroll-hidden { transform: none; pointer-events: auto; }
 }

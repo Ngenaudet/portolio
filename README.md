@@ -53,3 +53,10 @@ Le domaine de publication est `https://nicolas-genaudet.fr`. `sitemap.xml` recen
 
 ## Aperçu des liens partagés
 Les sept pages déclarent les métadonnées Open Graph et Twitter avec leurs titres et descriptions propres. L’image commune `assets/social-preview.png` (1200 × 630) reprend le logo, le nom et les services dans les couleurs du site. Son URL publique est `https://nicolas-genaudet.fr/assets/social-preview.png` : publier l’image avec les fichiers HTML. Le script macOS `swift scripts/generate-social-preview.swift`, lancé depuis la racine, permet de régénérer le visuel. Les plateformes peuvent conserver un ancien aperçu en cache après publication.
+
+## Animations GSAP
+Les sept pages chargent le moteur local `scripts/gsap.min.js` (3.15.0), puis les plugins fournis `ScrollTrigger.min.js` et `SplitText.min.js`. `scripts/site-animations.js` orchestre les titres, les apparitions au défilement, la progression de lecture, les boutons, les cartes, les FAQ et le menu mobile. Les micro-interactions CSS sont regroupées à la fin de `styles.css`.
+
+Les animations se désactivent et restaurent les éléments quand la préférence système `prefers-reduced-motion` change. Le clavier et le défilement natif restent disponibles. Sans GSAP, les apparitions existantes d’`app.js` prennent le relais ; sans JavaScript, le contenu reste visible. ScrollSmoother et Observer sont conservés dans le dossier sans être chargés : les interactions n’ont pas besoin de remplacer le défilement natif. Aucune dépendance CDN n’est chargée par le site.
+
+Les apparitions et le titre principal se rejouent à chaque entrée dans le viewport, en descendant comme en remontant. Le header se masque à la descente et revient à la remontée, avec un seuil de 8 px pour éviter les oscillations. Il reste visible en haut de page, quand le menu mobile est ouvert et pendant la navigation au clavier.
