@@ -60,3 +60,15 @@ Les sept pages chargent le moteur local `scripts/gsap.min.js` (3.15.0), puis les
 Les animations se désactivent et restaurent les éléments quand la préférence système `prefers-reduced-motion` change. Le clavier et le défilement natif restent disponibles. Sans GSAP, les apparitions existantes d’`app.js` prennent le relais ; sans JavaScript, le contenu reste visible. ScrollSmoother et Observer sont conservés dans le dossier sans être chargés : les interactions n’ont pas besoin de remplacer le défilement natif. Aucune dépendance CDN n’est chargée par le site.
 
 Les apparitions et le titre principal se rejouent à chaque entrée dans le viewport, en descendant comme en remontant. Le header se masque à la descente et revient à la remontée, avec un seuil de 8 px pour éviter les oscillations. Il reste visible en haut de page, quand le menu mobile est ouvert et pendant la navigation au clavier.
+
+## Mise à jour du 14 octobre 2026
+
+Header toujours visible, y compris à la descente. Les animations de contenu sont conservées. Mentions légales et confidentialité ajoutées, avec les coordonnées EI fournies par Nicolas. Le médiateur de la consommation reste à désigner ; les durées de conservation des demandes et des journaux ainsi que les réglages du compte GA4 restent à préciser. La page confidentialité décrit les formulaires Fillout/Zite déjà intégrés ; leur chargement est distinct de notre mesure d’audience. Aucun audit RGPD complet des prestataires intégrés n’est revendiqué.
+
+GA4 `G-BF3V4MJ92S` : consentement basique via `consent.js`, aucun chargement avant accord, refus et retrait accessibles depuis chaque page. Préférence mémorisée six mois ; cookies Analytics configurés pour treize mois sans renouvellement automatique. Publicité et Google Signals désactivés dans l’intégration locale. Les aperçus locaux n’envoient aucune mesure GA4. Vérifier les paramètres de conservation, partage et mesure améliorée dans le compte.
+
+La page `formations.html` contient les 31 programmes Pilot’in, des filtres et une recherche, le parcours dans les six écoles, les trois années de jury DWWM/CDA/CDUI et le financement. Les formations personnelles sont facturées par Nicolas et payables en trois virements selon le contrat ; aucune prise en charge, nombre de mensualités ou répartition égale n’est promise. Les modalités de Pilot’in restent distinctes.
+
+Les neuf pages disposent de titres et descriptions, canonical, Open Graph, Twitter et JSON-LD. Sur la page Formations, les 31 courses et leurs liens sont présents dans le HTML sans JavaScript et Pilot’in est identifié comme fournisseur dans le schéma. Le sitemap inclut les deux pages légales. Après modification de `pilot-data.js`, lancer `node scripts/build-seo.mjs` pour synchroniser le catalogue statique et les données structurées.
+
+Vérification du consentement : `node tests/consent.mjs`. `.htaccess` garde les redirections existantes, ajoute UTF-8, désactive le listing et définit une page 404 ; aucune nouvelle redirection d’anciennes URL n’est inventée. Remplir `plan-redirections.csv` avant de revoir les redirections existantes. Le serveur Python ne teste pas les règles Apache.

@@ -20,33 +20,7 @@
     nav.addEventListener('click', event => { if (event.target.closest('a') && mobile.matches) close(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && mobile.matches && !nav.hidden) { close(); toggle.focus(); } });
   }
-  // Header visible en remontant ; une marge évite les oscillations du trackpad.
-  const header = document.querySelector('.header');
-  if (header) {
-    let lastScroll = Math.max(0, window.scrollY);
-    let pending = false;
-    const showHeader = () => header.classList.remove('is-scroll-hidden');
-    const updateHeader = () => {
-      pending = false;
-      const position = Math.max(0, window.scrollY);
-      const difference = position - lastScroll;
-      const keepVisible = position <= header.offsetHeight + 24 ||
-        toggle?.getAttribute('aria-expanded') === 'true' || header.querySelector(':focus-visible');
-      if (keepVisible) {
-        showHeader();
-        lastScroll = position;
-      } else if (Math.abs(difference) >= 8) {
-        header.classList.toggle('is-scroll-hidden', difference > 0);
-        lastScroll = position;
-      }
-    };
-    window.addEventListener('scroll', () => {
-      if (!pending) { pending = true; requestAnimationFrame(updateHeader); }
-    }, { passive: true });
-    header.addEventListener('focusin', showHeader);
-    toggle?.addEventListener('click', showHeader);
-    window.addEventListener('pageshow', () => { lastScroll = Math.max(0, window.scrollY); showHeader(); });
-  }
+  // Le header reste visible dans les deux sens de défilement.
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   if (!(window.gsap && window.ScrollTrigger) && !reduced.matches && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
