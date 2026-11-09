@@ -810,6 +810,13 @@ textarea {
 .training-footer h2 {
   font-size: 2rem;
 }
+.agency-summary {
+  max-width: 58ch;
+  margin-top: 16px;
+}
+.agency-announcement > .button {
+  flex-shrink: 0;
+}
 .empty {
   grid-column: 1/-1;
   padding: 40px;
